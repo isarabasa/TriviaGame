@@ -1,0 +1,45 @@
+body { 
+    background: url(../images/background.jpg);
+    background-size: cover;
+    opacity: 70%;
+}
+
+#topText {
+    color: rgb(57, 30, 30);
+    font-size: 600%;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#text {
+    color: rgb(187, 19, 19);
+}
+
+h1,
+h2,
+h3 {
+	font-family: 'Press Start 2P', cursive;
+	padding: 25px;
+    font-size: 60px;
+}
+
+.answer,
+#timer {
+	font-weight: 900;
+}
+
+#start {
+    color: rgb(22, 155, 75);
+    font-size: 50px;
+    font-family: monospace;
+}
+
+.choices {
+	border: groove 2px rgb(150, 129, 7);
+	border-radius: 80%;
+	margin: 0 30%;
+}
+
+#game {
+
+}
+
