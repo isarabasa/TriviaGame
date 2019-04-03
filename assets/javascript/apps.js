@@ -173,12 +173,9 @@ $(document).ready(function() {
     	userTimeout();
     }
 
-    // this starts the game
     $("#start").click(nextQuestion);
 
-    // click function to trigger right or wrong screen
 	$("#game").on("click", ".choices", (function() {
-		// alert("clicked!");
 		var userGuess = $(this).text();
 		if (userGuess === questions[totalQuestion].correctAnswer) {
 			clearInterval(clock);
