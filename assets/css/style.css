@@ -1,5 +1,5 @@
 body { 
-    background: url(../images/background.jpg);
+    background: url(../images/background2.jpeg);
     background-size: cover;
     opacity: 70%;
 }
@@ -11,7 +11,8 @@ body {
 }
 
 #text {
-    color: rgb(187, 19, 19);
+    color: rgb(57, 30, 30);
+    font-size: 150%;
 }
 
 h1,

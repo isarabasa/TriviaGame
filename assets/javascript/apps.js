@@ -1,47 +1,79 @@
 $(document).ready(function() {
 
-    // will keep tally of right guesses for end game
     var correctGuesses = 0;
-    //will keep tally of wrong guesses for end game
     var incorrectGuesses = 0;
-    // initial time of 15 seconds for each question
     var time = 15;
-    // track which question we are on
     var totalQuestion = 0;   
 
     var questions = [
-      {
+        {
+        question: "Who painted `The Mona Lisa`?",
+        choices: ["Pablo Picasso", "Vincent van Gogh", "Leonardo da Vinci", "Claude Monet"],
+        correctAnswer: "Leonardo da Vinci",
+        image: "<img src= 'assets/images/daVinci.jpeg' class='img-daVinci'>"
+        },
+        {
         question: "What is the capital city of Puerto Rico?",
         choices: ["San Juan", "Caracas",  "Asuncion", "Montevideo"],
         correctAnswer: "San Juan",
         image: "<img src= 'assets/images/sanjuan.jpeg' class='img-sanjuan'>"
-	  }, 
+      }, 
 	  {
         question: "What is the largest bone in the human body?",
         choices: ["Tibia" ,  "Femur" , "Spine", "Scapula"],
         correctAnswer: "Femur",
 	    image: "<img src= 'assets/images/femur.jpeg' class='img-femur'>"
+      }, 
+      {
+        question: "Karl Marx's ideology advocated: ",
+        choices: ["a classed unique society", "a united society", "a classed society", "None of the above"],
+        correctAnswer: "a classed society",
+	    image: "<img src= 'assets/images/marx.jpeg' class='img-marx'>"
+      },
+      {
+        question: "Where was Pablo Neruda from?",
+        choices: ["Chile", "Argentina", "Mexico", "Venezuela"],
+        correctAnswer: "Chile",
+        image: "<img src= 'assets/images/chile.jpeg' class='img-chile'>"
 	  }, 
 	  {
-        question: "What was the first disney movie ever made?",
+        question: "What was the first Disney movie ever made?",
         choices: ["Pinocchio", "Snow White and the Seven Dwarfs" , "Fantasia", "Sleeping Beaty"],
         correctAnswer: "Snow White and the Seven Dwarfs",
 	    image: "<img src= 'assets/images/snowWhite.jpeg' class='img-snowWhite'>"
 	  }, 
 	  {
         question: "Who was the mexican president during the period of 1970-1976?",
-        choices: ["Miguel de la Madrid", "Gustavo Diaz Ordaz", "Adolfo Lopez Mateos", "Luis Echeverria"],
+        choices: [ "Luis Echeverria", "Miguel de la Madrid", "Gustavo Diaz Ordaz", "Adolfo Lopez Mateos"],
         correctAnswer: "Luis Echeverria",
 	    image: "<img src= 'assets/images/echeverria.jpeg' class='img-echeverria'>"
-	  }, 
+      }, 
+      {
+        question: "Which is the smallest country in the world?",
+        choices: ["Maldives", "Liechtenstein", "Monaco", "Vatican City"],
+        correctAnswer: "Vatican City",
+	    image: "<img src= 'assets/images/vatican.jpeg' class='img-vatican'>"
+      },
+      {
+        question: "For which of the following disciplines is Nobel Prize awarded?",
+        choices: ["Physics and Chemistry", "Physiology or Medicine", "Literature, Peace and Economics", "All of the above"],
+        correctAnswer: "All of the above",
+	    image: "<img src= 'assets/images/nobel.jpeg' class='img-vatican'>"
+      },
 	  {
         question: "What element begins with 'Na'? ",
         choices: ["Magnesium", "Sodium", "Nitrogen", "Nickel"],
         correctAnswer: "Sodium",
 	    image: "<img src= 'assets/images/sodium.jpeg' class='img-sodium'>"
-	  }];
+      },
+      {
+        question: "Richter scale is used for measuring",
+        choices: ["Density of liquid", "Intensity of earthquakes", "Velocity of wind", "Humidity of air"],
+        correctAnswer: "Intensity of earthquakes",
+	    image: "<img src= 'assets/images/richter.jpeg' class='img-vatican'>"
+      },
+    ];
     
-      	// user guessed correctly
 	function userWin() {
 		$("#game").html("<p>Correct answer!</p>");
 		correctGuesses++;
@@ -54,7 +86,6 @@ $(document).ready(function() {
 		totalQuestion++;
     }
     
-    	// user guessed incorrectly
 	function userLoss() {
 		$("#game").html("<p>Wrong answer!</p>");
 		incorrectGuesses++;
@@ -76,7 +107,6 @@ $(document).ready(function() {
     		questions[totalQuestion].choices[3] + "</strong></p>");
 	}
 
-	// user ran out of time
 	function userTimeout() {
 		if (time === 0) {
 			$("#game").html("<p>You ran out of time!</p>");
@@ -91,18 +121,16 @@ $(document).ready(function() {
 		}
 	}
 
-	// screen that shows final score
 	function resultsScreen() {
         var totalScore = "<h3>Total score</h3>"; 
 		$("#game").html("<p>" + totalScore + "</p>" + "<p>You got <strong>" + 
 			correctGuesses + "</strong> right.</p>" + 
 			"<p>You got <strong>" + incorrectGuesses + "</strong> wrong.</p>");
 		$("#game").append("<button id='start'>Start Over?</button>"); 
-		gameReset();
+		resetGame();
 		$("#start").click(nextQuestion);
 	}
 
-	// game clock currently set to 15 seconds
 	function timer() {
 		clock = setInterval(countDown, 1000);
 		function countDown() {
@@ -117,7 +145,6 @@ $(document).ready(function() {
 		}
 	}
 
-	// moves question counter forward to show next question
 	function nextQuestion() {
 		if (totalQuestion < questions.length) {
 			time = 15;
@@ -131,8 +158,7 @@ $(document).ready(function() {
 		}
 	}
 
-	// reset score and counter parameters on restart
-	function gameReset() {
+	function resetGame() {
 		totalQuestion = 0;
 		correctGuesses = 0;
 		incorrectGuesses = 0;
